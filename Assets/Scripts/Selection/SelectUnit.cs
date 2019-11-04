@@ -11,9 +11,9 @@ public class SelectUnit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+		
     }
-
+	
     // Update is called once per frame
     void Update()
     {
@@ -26,6 +26,10 @@ public class SelectUnit : MonoBehaviour
 			unit_1.setUnitColor(Color.green);
 			unit_2.setUnitColor(Color.red);
 			unit_3.setUnitColor(Color.red);
+			
+			// set the goals
+			unit_2.gameObject.GetComponent<Movement>().followUnit(unit_1.gameObject.GetComponent<Transform>());
+			unit_3.gameObject.GetComponent<Movement>().followUnit(unit_2.gameObject.GetComponent<Transform>());
 		}
 		else if(Input.GetKey(KeyCode.Alpha2)) {
 			unit_1.selected = false;
@@ -36,6 +40,10 @@ public class SelectUnit : MonoBehaviour
 			unit_1.setUnitColor(Color.red);
 			unit_2.setUnitColor(Color.green);
 			unit_3.setUnitColor(Color.red);
+			
+			// set the goals
+			unit_1.gameObject.GetComponent<Movement>().followUnit(unit_2.gameObject.GetComponent<Transform>());
+			unit_3.gameObject.GetComponent<Movement>().followUnit(unit_1.gameObject.GetComponent<Transform>());
 		}
 		else if(Input.GetKey(KeyCode.Alpha3)) {
 			unit_1.selected = false;
@@ -46,7 +54,10 @@ public class SelectUnit : MonoBehaviour
 			unit_1.setUnitColor(Color.red);
 			unit_2.setUnitColor(Color.red);
 			unit_3.setUnitColor(Color.green);
+			
+			// set the goals
+			unit_1.gameObject.GetComponent<Movement>().followUnit(unit_3.gameObject.GetComponent<Transform>());
+			unit_2.gameObject.GetComponent<Movement>().followUnit(unit_1.gameObject.GetComponent<Transform>());
 		}
-		
     }
 }
