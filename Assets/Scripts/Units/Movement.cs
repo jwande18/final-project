@@ -29,18 +29,18 @@ public class Movement : MonoBehaviour {
 					agent.destination = hit.point;
 				}
 			}
-			
-			// sprinting action
-			if(Input.GetKeyDown(KeyCode.LeftShift)) {
-				agent.speed = 5.0f;
-			}
-			else if(Input.GetKeyUp(KeyCode.LeftShift)) {
-				agent.speed = 3.5f;
-			}
 		}
 		else {
 			// unit not selected
 			agent.destination = goal.position;
+		}
+		
+		// sprinting action
+		if(Input.GetKeyDown(KeyCode.LeftShift)) {
+			agent.speed = 5.0f;
+		}
+		else if(Input.GetKeyUp(KeyCode.LeftShift)) {
+			agent.speed = 3.5f;
 		}
     }
 }
