@@ -10,12 +10,12 @@ public class CameraFollow : MonoBehaviour
 	public UnitInit unit_3;
 	private Vector3 camera_offset;
 	
-	public float smooth_factor = 0.1f;
+	public float smooth_factor = 0.01f;
 	
     // Start is called before the first frame update
     void Start() {
 		unit_to_follow = unit_1.gameObject.transform;
-		camera_offset = (transform.position - unit_to_follow.position) * 2.0f;
+		camera_offset = (transform.position - unit_to_follow.position) * 1.5f;
     }
 
     // Update is called once per frame
