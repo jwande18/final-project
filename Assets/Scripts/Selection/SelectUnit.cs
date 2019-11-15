@@ -11,7 +11,7 @@ public class SelectUnit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		
+		unit_1.selected = true;
     }
 	
     // Update is called once per frame

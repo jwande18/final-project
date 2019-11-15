@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class TriggerRadius : MonoBehaviour
 {
 	public GameObject textString;
+	public BattleState battle_m;
 	
 	UnityEngine.AI.NavMeshAgent agent;
 	Transform unit;
@@ -15,6 +16,8 @@ public class TriggerRadius : MonoBehaviour
 			transform.parent.gameObject.GetComponent<UnitInit>().selected = true;
 			unit = collision.transform;
 			textString.GetComponent<MeshRenderer>().enabled = true;
+			battle_m.isBattle = true;
+			battle_m.lookingPoint = collision.transform.position;
 		}
 	}
 	
