@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour {
 	// variables
 	NavMeshAgent agent;
 	public Transform goal;
-	int followDistance;
+	private int followDistance;
 	
 	public void followUnit(Transform transform) {
 		goal = transform;
@@ -17,7 +17,8 @@ public class Movement : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         agent = GetComponent<NavMeshAgent>();
-		followDistance = Random.Range(2, 4);
+		followDistance = Random.Range(2, 5);
+		goal = null;
     }
 
     // Update is called once per frame
@@ -37,29 +38,26 @@ public class Movement : MonoBehaviour {
 			if(Vector3.Distance(transform.position, agent.destination) < 1) {
 				agent.speed = 0.0f;
 			}
-			else if(Input.GetKeyDown(KeyCode.LeftShift)) {
-				agent.speed = 7.0f;
-			}
 			else {
 				agent.speed = 3.5f;
 			}
 		}
 		else {
 			// unit not selected - is follower
-			if(Vector3.Distance(transform.position, goal.position) < 2) {
+			if(goal != null) {
+			if(Vector3.Distance(transform.position, goal.position) < followDistance) {
 				// check if too close
 				agent.speed = 0.0f;
 				
-				followDistance = Random.Range(2, 4);
-			}
-			else if(Input.GetKeyDown(KeyCode.LeftShift)) {
-				agent.speed = 7.0f;
+				followDistance = Random.Range(2, 5);
 			}
 			else {
 				agent.speed = 3.5f;
 			}
 			
 			agent.destination = goal.position;
+			
+			}
 		}
     }
 }

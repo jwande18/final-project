@@ -3389,11 +3389,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: efcd169e1a6881346a8ece86e99e3c5a, type: 2}
+      objectReference: {fileID: 2100000, guid: f4e98d2dec73440bc804b8e5ef138aa0, type: 2}
     - target: {fileID: -1504981713932161579, guid: 56e86aacd7134e14dabb1ee6bcb95e41,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56e86aacd7134e14dabb1ee6bcb95e41, type: 3}
@@ -12969,7 +12969,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1872663371}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
