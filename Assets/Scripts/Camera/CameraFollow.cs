@@ -5,7 +5,8 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
 	public Transform unit_to_follow;
-	public BattleState battle_m;
+	public BattleState battleController;
+	
 	public UnitInit unit_1;
 	public UnitInit unit_2;
 	public UnitInit unit_3;
@@ -26,22 +27,22 @@ public class CameraFollow : MonoBehaviour
     void Update()
     {
 		// check for which unit to prioritize
-		if(unit_1.selected) {
+		if(unit_1.selected && !battleController.isBattling) {
 			unit_to_follow = unit_3.gameObject.transform;
 			new_position = unit_to_follow.position + camera_offset;
 		}
-		else if(unit_2.selected) {
+		else if(unit_2.selected && !battleController.isBattling) {
 			unit_to_follow = unit_1.gameObject.transform;
 			new_position = unit_to_follow.position + camera_offset;
 		}
-		else if(unit_3.selected) {
+		else if(unit_3.selected && !battleController.isBattling) {
 			unit_to_follow = unit_2.gameObject.transform;
 			new_position = unit_to_follow.position + camera_offset;
 		}
 		
-		if(battle_m.isBattle) {
+		if(battleController.isBattling) {
 			if(!foundPoint) {
-				transform.position = unit_to_follow.position + camera_offset * 2.0f;
+				transform.position = battleController.cameraAnchor + camera_offset;
 				foundPoint = true;
 			}
 		}

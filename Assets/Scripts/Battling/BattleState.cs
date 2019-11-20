@@ -4,18 +4,29 @@ using UnityEngine;
 
 public class BattleState : MonoBehaviour
 {
-	public bool isBattle;
-	public Vector3 lookingPoint;
+	public bool isBattling;
+	public Vector3 cameraFocus;
+	public Vector3 cameraAnchor;
+	
+	// units
+	public UnitInit unitOne;
+	public UnitInit unitTwo;
+	public UnitInit unitThree;
 	
     // Start is called before the first frame update
     void Start()
     {
-        isBattle = false;
+        isBattling = false;
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         
     }
+	
+	public void deselectUnits() {
+		unitOne.selected = false;
+		unitTwo.selected = false;
+		unitThree.selected = false;
+	}
 }

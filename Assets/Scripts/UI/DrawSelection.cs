@@ -23,5 +23,8 @@ public class DrawSelection : MonoBehaviour
 		else if(GetComponent<SelectUnit>().unit_3.selected) {
 			selection.text = "Selected: Unit 3";
 		}
+		else {
+			selection.text = "None";
+		}
     }
 }

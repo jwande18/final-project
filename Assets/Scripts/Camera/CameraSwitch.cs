@@ -7,7 +7,7 @@ public class CameraSwitch : MonoBehaviour
 	public UnitInit unit_1;
 	public UnitInit unit_2;
 	public UnitInit unit_3;
-	public BattleState battle_m;
+	public BattleState battleController;
 	
     // Start is called before the first frame update
     void Start()
@@ -18,8 +18,8 @@ public class CameraSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if(battle_m.isBattle) {
-			transform.LookAt(battle_m.lookingPoint);
+		if(battleController.isBattling) {
+			transform.LookAt(battleController.cameraFocus);
 		}
 		else if(unit_1.selected) {
 			transform.LookAt(unit_1.gameObject.transform.position);

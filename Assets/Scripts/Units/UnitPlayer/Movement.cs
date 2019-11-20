@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour {
 	// variables
 	NavMeshAgent agent;
 	public Transform goal;
+	public BattleState battleController;
 	private int followDistance;
 	
 	public void followUnit(Transform transform) {
@@ -44,18 +45,18 @@ public class Movement : MonoBehaviour {
 		}
 		else {
 			// unit not selected - is follower
-			if(goal != null) {
-			if(Vector3.Distance(transform.position, goal.position) < followDistance) {
-				// check if too close
-				agent.speed = 0.0f;
+			if(goal != null && !battleController.isBattling) {
+				if(Vector3.Distance(transform.position, goal.position) < followDistance) {
+					// check if too close
+					agent.speed = 0.0f;
 				
-				followDistance = Random.Range(2, 5);
-			}
-			else {
-				agent.speed = 3.5f;
-			}
+					followDistance = Random.Range(2, 5);
+				}
+				else {
+					agent.speed = 3.5f;
+				}
 			
-			agent.destination = goal.position;
+				agent.destination = goal.position;
 			
 			}
 		}
