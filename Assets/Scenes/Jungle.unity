@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 7e4024464a7f63a408ac3c1225f094f9, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -261,6 +261,7 @@ MonoBehaviour:
   unit_1: {fileID: 1870354409}
   unit_2: {fileID: 1734476399}
   unit_3: {fileID: 934704653}
+  battleController: {fileID: 0}
 --- !u!114 &42727267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,10 +275,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit_to_follow: {fileID: 0}
+  battleController: {fileID: 0}
   unit_1: {fileID: 1870354409}
   unit_2: {fileID: 1734476399}
   unit_3: {fileID: 934704653}
   smooth_factor: 0.1
+  new_position: {x: 0, y: 0, z: 0}
+  foundPoint: 0
 --- !u!81 &42727268
 AudioListener:
   m_ObjectHideFlags: 0
@@ -871,6 +875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: {fileID: 0}
+  battleController: {fileID: 0}
 --- !u!195 &934704655
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1318,6 +1323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textString: {fileID: 1753251}
+  battle_m: {fileID: 0}
 --- !u!136 &1379223140
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1517,6 +1523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: {fileID: 0}
+  battleController: {fileID: 0}
 --- !u!195 &1734476401
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1680,6 +1687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goal: {fileID: 0}
+  battleController: {fileID: 0}
 --- !u!195 &1870354412
 NavMeshAgent:
   m_ObjectHideFlags: 0
