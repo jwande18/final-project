@@ -5,6 +5,10 @@ using UnityEngine;
 public class UnitInit : MonoBehaviour
 {
 	public bool selected = false;
+	public bool turn = false;
+	public BattleState battleController;
+	public Renderer attackRadius;
+	public Renderer accuracyRadius;
 	
 	public void setUnitColor(Color color) {
 		Renderer unit_mesh = GetComponent<Renderer>();
@@ -19,6 +23,16 @@ public class UnitInit : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+		if(battleController.isBattling) {
+			if(selected) {
+				attackRadius.enabled = true;
+				accuracyRadius.enabled = true;
+			}
+			else {
+				attackRadius.enabled = false;
+				accuracyRadius.enabled = false;
+			}
+		}
         
     }
 }
