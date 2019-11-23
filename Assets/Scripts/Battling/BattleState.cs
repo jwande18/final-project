@@ -5,6 +5,7 @@ using UnityEngine;
 public class BattleState : MonoBehaviour
 {
 	public bool isBattling;
+	public bool playerTurn;
 	public Vector3 cameraFocus;
 	public Vector3 cameraAnchor;
 	
@@ -14,9 +15,9 @@ public class BattleState : MonoBehaviour
 	public UnitInit unitThree;
 	
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         isBattling = false;
+		playerTurn = true;
     }
 
     // Update is called once per frame

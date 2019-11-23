@@ -7,6 +7,7 @@ public class SelectUnit : MonoBehaviour
 	public UnitInit unit_1;
 	public UnitInit unit_2;
 	public UnitInit unit_3;
+	public BattleState battleController;
 	
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,13 @@ public class SelectUnit : MonoBehaviour
 			unit_2.selected = false;
 			unit_3.selected = false;
 			
+			// check for battling
+			if(battleController.isBattling && !unit_1.moved) {
+				unit_1.turn = true;
+				unit_2.turn = false;
+				unit_3.turn = false;
+			}
+			
 			// re-color units
 			unit_1.setUnitColor(Color.green);
 			unit_2.setUnitColor(Color.red);
@@ -36,6 +44,12 @@ public class SelectUnit : MonoBehaviour
 			unit_2.selected = true;
 			unit_3.selected = false;
 			
+			// check for battling
+			if(battleController.isBattling && !unit_2.moved) {
+				unit_1.turn = false;
+				unit_2.turn = true;
+				unit_3.turn = false;
+			}
 			// re-color units
 			unit_1.setUnitColor(Color.red);
 			unit_2.setUnitColor(Color.green);
@@ -49,6 +63,13 @@ public class SelectUnit : MonoBehaviour
 			unit_1.selected = false;
 			unit_2.selected = false;
 			unit_3.selected = true;
+			
+			// check for battling
+			if(battleController.isBattling && !unit_3.moved) {
+				unit_1.turn = false;
+				unit_2.turn = false;
+				unit_3.turn = true;
+			}
 			
 			// re-color units
 			unit_1.setUnitColor(Color.red);

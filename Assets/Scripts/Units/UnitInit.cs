@@ -5,7 +5,12 @@ using UnityEngine;
 public class UnitInit : MonoBehaviour
 {
 	public bool selected = false;
+	
+	// combat variables
 	public bool turn = false;
+	public bool moved = false;
+	public bool attacked = false;
+	
 	public BattleState battleController;
 	public Renderer attackRadius;
 	public Renderer accuracyRadius;

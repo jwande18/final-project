@@ -24,40 +24,42 @@ public class Movement : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-		// unit selected - is leader
-		if(GetComponent<UnitInit>().selected) {
-			// move to point action
-			if(Input.GetMouseButtonDown(1)){
-				RaycastHit hit;
+		if(!battleController.isBattling) {
+			// unit selected - is leader
+			if(GetComponent<UnitInit>().selected) {
+				// move to point action
+				if(Input.GetMouseButtonDown(1)){
+					RaycastHit hit;
 			
-				if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100)) {
-					agent.destination = hit.point;
+					if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100)) {
+						agent.destination = hit.point;
+					}
 				}
-			}
 			
-			// check if destination met
-			if(Vector3.Distance(transform.position, agent.destination) < 1) {
-				agent.speed = 0.0f;
-			}
-			else {
-				agent.speed = 3.5f;
-			}
-		}
-		else {
-			// unit not selected - is follower
-			if(goal != null && !battleController.isBattling) {
-				if(Vector3.Distance(transform.position, goal.position) < followDistance) {
-					// check if too close
+				// check if destination met
+				if(Vector3.Distance(transform.position, agent.destination) < 1) {
 					agent.speed = 0.0f;
-				
-					followDistance = Random.Range(2, 5);
 				}
 				else {
 					agent.speed = 3.5f;
 				}
+			}
+			else {
+				// unit not selected - is follower
+				if(goal != null && !battleController.isBattling) {
+					if(Vector3.Distance(transform.position, goal.position) < followDistance) {
+						// check if too close
+						agent.speed = 0.0f;
+				
+						followDistance = Random.Range(2, 5);
+					}
+					else {
+						agent.speed = 3.5f;
+					}
 			
-				agent.destination = goal.position;
+					agent.destination = goal.position;
 			
+				}
 			}
 		}
     }

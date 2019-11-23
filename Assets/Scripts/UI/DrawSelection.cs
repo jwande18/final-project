@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DrawSelection : MonoBehaviour
 {
 	public Text selection;
+	public Text turnSelection;
 	public Image unitOneImage;
 	public Image unitTwoImage;
 	public Image unitThreeImage;
@@ -43,6 +44,19 @@ public class DrawSelection : MonoBehaviour
 		}
 		else {
 			selection.text = "None";
+		}
+		
+		if(GetComponent<SelectUnit>().unit_1.turn) {
+			turnSelection.text = "Unit 1's Turn";
+		}
+		else if(GetComponent<SelectUnit>().unit_2.turn) {
+			turnSelection.text = "Unit 2's Turn";
+		}
+		else if(GetComponent<SelectUnit>().unit_3.turn) {
+			turnSelection.text = "Unit 3's Turn";
+		}
+		else {
+			turnSelection.text = "No Ones's Turn";
 		}
     }
 }
