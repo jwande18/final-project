@@ -13,7 +13,7 @@ public class UnitInit : MonoBehaviour
 	
 	public BattleState battleController;
 	public Renderer attackRadius;
-	public Renderer accuracyRadius;
+	public Renderer accuracyPointer;
 	
 	public void setUnitColor(Color color) {
 		Renderer unit_mesh = GetComponent<Renderer>();
@@ -31,11 +31,11 @@ public class UnitInit : MonoBehaviour
 		if(battleController.isBattling) {
 			if(selected) {
 				attackRadius.enabled = true;
-				accuracyRadius.enabled = true;
+				accuracyPointer.enabled = true;
 			}
 			else {
 				attackRadius.enabled = false;
-				accuracyRadius.enabled = false;
+				accuracyPointer.enabled = false;
 			}
 		}
         

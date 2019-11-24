@@ -36,22 +36,27 @@ public class TriggerRadiusDisplayChecker : MonoBehaviour
 			// enable mesh renderers
 			if(triggerRadiusOne != null) {
 				triggerRadiusOne.enabled = true;
+				battleController.enemyCount += 1;
 			}
 			
 			if(triggerRadiusTwo != null) {
 				triggerRadiusTwo.enabled = true;
+				battleController.enemyCount += 1;
 			}
 			
 			if(triggerRadiusThree != null) {
 				triggerRadiusThree.enabled = true;
+				battleController.enemyCount += 1;
 			}
 			
 			if(triggerRadiusFour != null) {
 				triggerRadiusFour.enabled = true;
+				battleController.enemyCount += 1;
 			}
 			
 			if(triggerRadiusFive != null) {
 				triggerRadiusFive.enabled = true;
+				battleController.enemyCount += 1;
 			}
 			
 			Destroy(gameObject);

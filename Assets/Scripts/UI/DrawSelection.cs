@@ -7,9 +7,11 @@ public class DrawSelection : MonoBehaviour
 {
 	public Text selection;
 	public Text turnSelection;
+	public Text enemyCounter;
 	public Image unitOneImage;
 	public Image unitTwoImage;
 	public Image unitThreeImage;
+	public BattleState battleController;
 	
     // Start is called before the first frame update
     void Start() {
@@ -58,5 +60,7 @@ public class DrawSelection : MonoBehaviour
 		else {
 			turnSelection.text = "No Ones's Turn";
 		}
+		
+		enemyCounter.text = "Enemy Count: " + battleController.enemyCount;
     }
 }

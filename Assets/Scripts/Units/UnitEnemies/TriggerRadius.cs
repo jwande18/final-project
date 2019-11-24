@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class TriggerRadius : MonoBehaviour
 {
 	public GameObject textString;
-	public BattleState battle_m;
+	public GameObject battleManager;
 	
 	UnityEngine.AI.NavMeshAgent agent;
 	Transform unit;
@@ -16,13 +16,14 @@ public class TriggerRadius : MonoBehaviour
 			transform.parent.gameObject.GetComponent<UnitInit>().selected = true;
 			unit = collision.transform;
 			textString.GetComponent<MeshRenderer>().enabled = true;
+			battleManager.GetComponent<BattleState>().enemyCount -= 1;
 		}
 	}
 	
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         agent = transform.parent.gameObject.GetComponent<NavMeshAgent>();
+		battleManager = GameObject.Find("BattleManager");
     }
 
     // Update is called once per frame
