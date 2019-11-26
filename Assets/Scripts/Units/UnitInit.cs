@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class UnitInit : MonoBehaviour
 {
+	// unit base stats
+	public int healthStat;
+	public int defenseStat;
+	public int manaStat;
+	
 	public bool selected = false;
 	
 	// combat variables
@@ -15,6 +20,11 @@ public class UnitInit : MonoBehaviour
 	public Renderer attackRadius;
 	public Renderer accuracyPointer;
 	
+	// child objects
+	public Transform unitModel;
+	public Transform unitAttackRange;
+	public Transform unitAccuracyPointer;
+	
 	public void setUnitColor(Color color) {
 		Renderer unit_mesh = GetComponent<Renderer>();
 		unit_mesh.material.SetColor("_Color", color);
@@ -24,6 +34,19 @@ public class UnitInit : MonoBehaviour
     void Start() {
         Renderer unit_mesh = GetComponent<Renderer>();
 		unit_mesh.material.SetColor("_Color", Color.red);
+		
+		// set battleController
+		battleController = GameObject.Find("BattleManager").GetComponent<BattleState>();
+		
+		// unit children
+		unitModel = this.gameObject.transform.GetChild(0);
+		unitAttackRange = this.gameObject.transform.GetChild(1);
+		unitAccuracyPointer = this.gameObject.transform.GetChild(2);
+		
+		// unit stats
+		healthStat = 100;
+		manaStat = 100;
+		defenseStat = 5;
     }
 
     // Update is called once per frame
@@ -38,6 +61,19 @@ public class UnitInit : MonoBehaviour
 				accuracyPointer.enabled = false;
 			}
 		}
-        
+		
+		// check health
+		if(healthStat <= 0) {
+			battleController.enemyCount -= 1;
+			Destroy(this.gameObject.transform.parent.gameObject);
+		}
+		
+		if(Input.GetKeyDown(KeyCode.H)) {
+			healthStat -= 5;
+		}
     }
+	
+	public void takeDamage(int damage) {
+		healthStat = healthStat - damage;
+	}
 }

@@ -24,7 +24,7 @@ public class SelectUnit : MonoBehaviour
 			unit_3.selected = false;
 			
 			// check for battling
-			if(battleController.isBattling && !unit_1.moved) {
+			if(battleController.isBattling && (!unit_1.moved || !unit_1.attacked)) {
 				unit_1.turn = true;
 				unit_2.turn = false;
 				unit_3.turn = false;
@@ -45,7 +45,7 @@ public class SelectUnit : MonoBehaviour
 			unit_3.selected = false;
 			
 			// check for battling
-			if(battleController.isBattling && !unit_2.moved) {
+			if(battleController.isBattling && (!unit_2.moved || !unit_2.attacked)) {
 				unit_1.turn = false;
 				unit_2.turn = true;
 				unit_3.turn = false;
@@ -65,7 +65,7 @@ public class SelectUnit : MonoBehaviour
 			unit_3.selected = true;
 			
 			// check for battling
-			if(battleController.isBattling && !unit_3.moved) {
+			if(battleController.isBattling && (!unit_3.moved || !unit_3.attacked)) {
 				unit_1.turn = false;
 				unit_2.turn = false;
 				unit_3.turn = true;

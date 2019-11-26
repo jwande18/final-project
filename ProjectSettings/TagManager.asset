@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - UnitPlayer
+  - UnitEnemy
+  - UnitEnemySlime
   layers:
   - Default
   - TransparentFX

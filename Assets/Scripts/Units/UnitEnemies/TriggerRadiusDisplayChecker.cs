@@ -15,6 +15,13 @@ public class TriggerRadiusDisplayChecker : MonoBehaviour
 	public Renderer triggerRadiusFour;
 	public Renderer triggerRadiusFive;
 	
+	// unit stat renderers
+	public Renderer unitStatOne;
+	public Renderer unitStatTwo;
+	public Renderer unitStatThree;
+	public Renderer unitStatFour;
+	public Renderer unitStatFive;
+	
     // Start is called before the first frame update
     void Start() {
         
@@ -36,26 +43,31 @@ public class TriggerRadiusDisplayChecker : MonoBehaviour
 			// enable mesh renderers
 			if(triggerRadiusOne != null) {
 				triggerRadiusOne.enabled = true;
+				unitStatOne.enabled = true;
 				battleController.enemyCount += 1;
 			}
 			
 			if(triggerRadiusTwo != null) {
 				triggerRadiusTwo.enabled = true;
+				unitStatTwo.enabled = true;
 				battleController.enemyCount += 1;
 			}
 			
 			if(triggerRadiusThree != null) {
 				triggerRadiusThree.enabled = true;
+				unitStatThree.enabled = true;
 				battleController.enemyCount += 1;
 			}
 			
 			if(triggerRadiusFour != null) {
 				triggerRadiusFour.enabled = true;
+				unitStatFour.enabled = true;
 				battleController.enemyCount += 1;
 			}
 			
 			if(triggerRadiusFive != null) {
 				triggerRadiusFive.enabled = true;
+				unitStatFive.enabled = true;
 				battleController.enemyCount += 1;
 			}
 			

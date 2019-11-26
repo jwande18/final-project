@@ -32,6 +32,16 @@ public class BattleState : MonoBehaviour
 			unitTwo.moved = true;
 			unitThree.moved = true;
 			
+			// reset health
+			unitOne.healthStat = 100;
+			unitTwo.healthStat = 100;
+			unitThree.healthStat = 100;
+			
+			// reset mana
+			unitOne.manaStat = 100;
+			unitTwo.manaStat = 100;
+			unitThree.manaStat = 100;
+			
 			Debug.Log("Battling OVER");
 		}
 		else {

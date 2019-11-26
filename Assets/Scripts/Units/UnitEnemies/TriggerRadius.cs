@@ -15,8 +15,6 @@ public class TriggerRadius : MonoBehaviour
 		if(collision.tag == "UnitPlayer") {
 			transform.parent.gameObject.GetComponent<UnitInit>().selected = true;
 			unit = collision.transform;
-			textString.GetComponent<MeshRenderer>().enabled = true;
-			battleManager.GetComponent<BattleState>().enemyCount -= 1;
 		}
 	}
 	
