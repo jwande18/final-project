@@ -1984,13 +1984,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207563378}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a61c5f9a8145e7c4e8bf9d5fb7b222e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textString: {fileID: 1289846938}
   battleManager: {fileID: 0}
+  attackRadius: {fileID: 1648812959}
 --- !u!136 &207563381
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6116,6 +6117,7 @@ GameObject:
   - component: {fileID: 791456031}
   - component: {fileID: 791456030}
   - component: {fileID: 791456029}
+  - component: {fileID: 791456032}
   m_Layer: 0
   m_Name: AccuracyPointer
   m_TagString: Untagged
@@ -6145,8 +6147,8 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 791456027}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -6196,6 +6198,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 791456027}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &791456032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791456027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9ee336da7675d49a19e2cccecd2d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitTurn: {fileID: 934242943}
+  attackRadius: {fileID: 1648812959}
+  battleManager: {fileID: 0}
+  unitOne: {fileID: 1872663371}
+  unitTwo: {fileID: 1799877232}
+  unitThree: {fileID: 1908050565}
 --- !u!1001 &798395802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7465,13 +7485,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 957915095}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a61c5f9a8145e7c4e8bf9d5fb7b222e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textString: {fileID: 1906005628}
   battleManager: {fileID: 0}
+  attackRadius: {fileID: 536700162}
 --- !u!136 &957915098
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8485,6 +8506,7 @@ GameObject:
   - component: {fileID: 1061343349}
   - component: {fileID: 1061343348}
   - component: {fileID: 1061343347}
+  - component: {fileID: 1061343350}
   m_Layer: 0
   m_Name: AccuracyPointer
   m_TagString: Untagged
@@ -8514,8 +8536,8 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061343345}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -8565,6 +8587,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061343345}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1061343350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061343345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9ee336da7675d49a19e2cccecd2d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitTurn: {fileID: 2071262326}
+  attackRadius: {fileID: 536700162}
+  battleManager: {fileID: 0}
+  unitOne: {fileID: 1872663371}
+  unitTwo: {fileID: 1799877232}
+  unitThree: {fileID: 1908050565}
 --- !u!1001 &1064334323
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11816,13 +11856,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385248973}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a61c5f9a8145e7c4e8bf9d5fb7b222e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textString: {fileID: 813079880}
   battleManager: {fileID: 0}
+  attackRadius: {fileID: 1050808895}
 --- !u!136 &1385248976
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12033,6 +12074,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battleController: {fileID: 2078208986}
   mainCamera: {fileID: 1378258832}
+  enemyOne: {fileID: 2071262324}
+  enemyTwo: {fileID: 934242941}
+  enemyThree: {fileID: 1131429480}
+  enemyFour: {fileID: 0}
+  enemyFive: {fileID: 0}
   triggerRadiusOne: {fileID: 957915099}
   triggerRadiusTwo: {fileID: 207563379}
   triggerRadiusThree: {fileID: 1385248974}
@@ -15378,6 +15424,7 @@ GameObject:
   - component: {fileID: 1781242446}
   - component: {fileID: 1781242445}
   - component: {fileID: 1781242444}
+  - component: {fileID: 1781242447}
   m_Layer: 0
   m_Name: AccuracyPointer
   m_TagString: Untagged
@@ -15407,8 +15454,8 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781242442}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -15458,6 +15505,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781242442}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1781242447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781242442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9ee336da7675d49a19e2cccecd2d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitTurn: {fileID: 1131429482}
+  attackRadius: {fileID: 1050808895}
+  battleManager: {fileID: 0}
+  unitOne: {fileID: 1872663371}
+  unitTwo: {fileID: 1799877232}
+  unitThree: {fileID: 1908050565}
 --- !u!4 &1784900036 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 56e86aacd7134e14dabb1ee6bcb95e41,
@@ -18638,6 +18703,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2078208987}
   - component: {fileID: 2078208986}
+  - component: {fileID: 2078208988}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -18657,6 +18723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2f6d8cd693a9414881e767ee4bc288e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainTimer: {fileID: 0}
   isBattling: 0
   playerTurn: 0
   enemyCount: 0
@@ -18665,6 +18732,11 @@ MonoBehaviour:
   unitOne: {fileID: 1872663378}
   unitTwo: {fileID: 1799877233}
   unitThree: {fileID: 1908050566}
+  enemyOne: {fileID: 0}
+  enemyTwo: {fileID: 0}
+  enemyThree: {fileID: 0}
+  enemyFour: {fileID: 0}
+  enemyFive: {fileID: 0}
 --- !u!4 &2078208987
 Transform:
   m_ObjectHideFlags: 0
@@ -18679,6 +18751,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2078208988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078208985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30e826aa56223b8479027cd40dc1a54e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerCount: 0
 --- !u!1001 &2088300455
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -71,6 +71,11 @@ public class UnitInit : MonoBehaviour
 		if(Input.GetKeyDown(KeyCode.H)) {
 			healthStat -= 5;
 		}
+		
+		// check turn
+		if(moved && attacked) {
+			turn = false;
+		}
     }
 	
 	public void takeDamage(int damage) {

@@ -7,6 +7,7 @@ public class TriggerRadius : MonoBehaviour
 {
 	public GameObject textString;
 	public GameObject battleManager;
+	public Renderer attackRadius;
 	
 	UnityEngine.AI.NavMeshAgent agent;
 	Transform unit;

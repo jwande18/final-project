@@ -8,6 +8,13 @@ public class TriggerRadiusDisplayChecker : MonoBehaviour
 	public BattleState battleController;
 	public GameObject mainCamera;
 	
+	// units
+	public GameObject enemyOne;
+	public GameObject enemyTwo;
+	public GameObject enemyThree;
+	public GameObject enemyFour;
+	public GameObject enemyFive;
+	
 	// mesh renderers
 	public Renderer triggerRadiusOne;
 	public Renderer triggerRadiusTwo;
@@ -42,32 +49,47 @@ public class TriggerRadiusDisplayChecker : MonoBehaviour
 			
 			// enable mesh renderers
 			if(triggerRadiusOne != null) {
+				enemyOne.GetComponent<UnitInit>().selected = true;
 				triggerRadiusOne.enabled = true;
 				unitStatOne.enabled = true;
+				
+				battleController.enemyOne = enemyOne;
 				battleController.enemyCount += 1;
 			}
 			
 			if(triggerRadiusTwo != null) {
+				enemyTwo.GetComponent<UnitInit>().selected = true;
 				triggerRadiusTwo.enabled = true;
 				unitStatTwo.enabled = true;
+				
+				battleController.enemyTwo = enemyTwo;
 				battleController.enemyCount += 1;
 			}
 			
 			if(triggerRadiusThree != null) {
+				enemyThree.GetComponent<UnitInit>().selected = true;
 				triggerRadiusThree.enabled = true;
 				unitStatThree.enabled = true;
+				
+				battleController.enemyThree = enemyThree;
 				battleController.enemyCount += 1;
 			}
 			
 			if(triggerRadiusFour != null) {
+				enemyFour.GetComponent<UnitInit>().selected = true;
 				triggerRadiusFour.enabled = true;
 				unitStatFour.enabled = true;
+				
+				battleController.enemyFour = enemyFour;
 				battleController.enemyCount += 1;
 			}
 			
 			if(triggerRadiusFive != null) {
+				enemyFive.GetComponent<UnitInit>().selected = true;
 				triggerRadiusFive.enabled = true;
 				unitStatFive.enabled = true;
+				
+				battleController.enemyFive = enemyFive;
 				battleController.enemyCount += 1;
 			}
 			

@@ -27,6 +27,10 @@ public class TestAccuracy : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Q)) {
 			if(unitTurn.selected) {
 				unitTurn.manaStat -= 5;
+				
+				if(unitTurn.moved) {
+					unitTurn.attacked = true;
+				}
 			}
 		}
     }
