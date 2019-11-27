@@ -42,11 +42,15 @@ public class EnemyAttack : MonoBehaviour
 		if(!battleManager.GetComponent<BattleState>().playerTurn) {
 			if(unitTurn.selected && unitTurn.turn) {
 				agent.destination = playerUnits[target].transform.position;
+				agent.speed = 3.5f;
 			}
-		
-			if(Vector3.Distance(transform.position, agent.destination) <= (attackRadius.bounds.extents.magnitude / 2.0f)) {
+			
+			if(Vector3.Distance(transform.parent.gameObject.transform.position, playerUnits[target].transform.position) <= 3.5f) {
 				agent.speed = 0.0f;
+				transform.parent.gameObject.GetComponent<UnitInit>().moved = true;
+				transform.parent.gameObject.GetComponent<UnitInit>().attacked = true;
 			}
+
 		}
     }
 }

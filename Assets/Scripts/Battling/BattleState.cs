@@ -36,24 +36,90 @@ public class BattleState : MonoBehaviour
     void Update() {
 		if(isBattling) {
 			if(playerTurnComplete()) {
-				playerTurn = false;
+				Debug.Log("PlayerTurnComplete");
 				deselectUnits();
+				playerTurn = false;
+				
+				unitOne.moved = false;
+				unitOne.attacked = false;
+				
+				unitTwo.moved = false;
+				unitTwo.attacked = false;
+				
+				unitThree.moved = false;
+				unitThree.attacked = false;
 			}
 			else if(enemyTurnComplete()) {
+				Debug.Log("EnemyTurnComplete");
 				playerTurn = true;
+				
+				if(enemyOne != null) {
+					enemyOne.GetComponent<UnitInit>().moved = false;
+					enemyOne.GetComponent<UnitInit>().attacked = false;
+				}
+				
+				if(enemyTwo != null) {
+					enemyTwo.GetComponent<UnitInit>().moved = false;
+					enemyTwo.GetComponent<UnitInit>().attacked = false;
+				}
+				
+				if(enemyThree != null) {
+					enemyThree.GetComponent<UnitInit>().moved = false;
+					enemyThree.GetComponent<UnitInit>().attacked = false;
+				}
+				
+				if(enemyFour != null) {
+					enemyFour.GetComponent<UnitInit>().moved = false;
+					enemyFour.GetComponent<UnitInit>().attacked = false;
+				}
+				
+				if(enemyFive != null) {
+					enemyFive.GetComponent<UnitInit>().moved = false;
+					enemyFive.GetComponent<UnitInit>().attacked = false;
+				}
+				
+				mainTimer.timerCount = 0;
 			}
 			
 			// check for enemy attack
+			Debug.Log(mainTimer.timerCount);
 			if(!playerTurn) {
-				if(mainTimer.timerCount > 1000 && mainTimer.timerCount < 2000) {
-					enemyOne.GetComponent<UnitInit>().turn = true;
+				if(mainTimer.timerCount > 500 / 2 && mainTimer.timerCount < 1000 / 2) {
+					if(enemyOne != null) {
+						if(!enemyOne.GetComponent<UnitInit>().turn) {
+							enemyOne.GetComponent<UnitInit>().turn = true;
+						}
+					}
 				}
-				else if(mainTimer.timerCount > 2000 && mainTimer.timerCount < 3000) {
-					enemyTwo.GetComponent<UnitInit>().turn = true;
+				else if(mainTimer.timerCount > 1000 / 2 && mainTimer.timerCount < 1500 / 2) {
+					if(enemyTwo != null) {
+						if(!enemyTwo.GetComponent<UnitInit>().turn) {
+							enemyTwo.GetComponent<UnitInit>().turn = true;
+						}
+					}
 				}
-				else if(mainTimer.timerCount > 3000 && mainTimer.timerCount < 4000) {
-					enemyThree.GetComponent<UnitInit>().turn = true;
+				else if(mainTimer.timerCount > 1500 / 2 && mainTimer.timerCount < 2000 / 2) {
+					if(enemyThree != null) {
+						if(!enemyThree.GetComponent<UnitInit>().turn) {
+							enemyThree.GetComponent<UnitInit>().turn = true;
+						}
+					}
 				}
+				else if(mainTimer.timerCount > 2000 / 2 && mainTimer.timerCount < 2500 / 2) {
+					if(enemyFour != null) {
+						if(!enemyFour.GetComponent<UnitInit>().turn) {
+							enemyFour.GetComponent<UnitInit>().turn = true;
+						}
+					}
+				}
+				else if(mainTimer.timerCount > 2500 / 2 && mainTimer.timerCount < 3000 / 2) {
+					if(enemyFive != null) {
+						if(!enemyFive.GetComponent<UnitInit>().turn) {
+							enemyFive.GetComponent<UnitInit>().turn = true;
+						}
+					}
+				}
+				
 			}
 		
 			// check state
@@ -103,7 +169,9 @@ public class BattleState : MonoBehaviour
 	bool playerTurnComplete() {
 		bool result;
 		
-		if(!unitOne.turn && !unitTwo.turn && !unitThree.turn) {
+		if(unitOne.moved && unitOne.attacked
+			&& unitTwo.moved  && unitTwo.attacked
+			&& unitThree.moved && unitThree.attacked) {
 				result = true;
 		}
 		else {
@@ -114,6 +182,54 @@ public class BattleState : MonoBehaviour
 	}
 	
 	bool enemyTurnComplete() {
-		return false;
+		bool result = true;
+		
+		if(enemyOne != null) {
+			if(enemyOne.GetComponent<UnitInit>().moved &&
+				enemyOne.GetComponent<UnitInit>().attacked) {
+					result = true;
+			}
+			else {
+				return false;
+			}
+		}
+		if(enemyTwo != null) {
+			if(enemyTwo.GetComponent<UnitInit>().moved &&
+				enemyTwo.GetComponent<UnitInit>().attacked) {
+					result = true;
+			}
+			else {
+				return false;
+			}
+		}
+		if(enemyThree != null) {
+			if(enemyThree.GetComponent<UnitInit>().moved &&
+				enemyThree.GetComponent<UnitInit>().attacked) {
+					result = true;
+			}
+			else {
+				return false;
+			}
+		}
+		if(enemyFour != null) {
+			if(enemyFour.GetComponent<UnitInit>().moved &&
+				enemyFour.GetComponent<UnitInit>().attacked) {
+					result = true;
+			}
+			else {
+				return false;
+			}
+		}
+		if(enemyFive != null) {
+			if(enemyFive.GetComponent<UnitInit>().moved &&
+				enemyFive.GetComponent<UnitInit>().attacked) {
+					result = true;
+			}
+			else {
+				return false;
+			}
+		}
+		
+		return result;
 	}
 }
