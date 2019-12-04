@@ -10,7 +10,8 @@ public class TestAccuracy : MonoBehaviour
 		if(Input.GetKeyDown(KeyCode.Q)) {			
 			if(unitTurn.turn && unitTurn.moved && !unitTurn.attacked) {
 				if(collision.gameObject.tag == "UnitEnemySlime") {
-					collision.gameObject.GetComponent<UnitInit>().takeDamage(50);
+					collision.gameObject.GetComponent<UnitInit>().takeDamage(10);
+					collision.gameObject.GetComponent<UnitInit>().damageSpell.Play("Explode");
 				}
 			}
 		}

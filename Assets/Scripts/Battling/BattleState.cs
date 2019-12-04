@@ -84,35 +84,35 @@ public class BattleState : MonoBehaviour
 			// check for enemy attack
 			Debug.Log(mainTimer.timerCount);
 			if(!playerTurn) {
-				if(mainTimer.timerCount > 500 / 2 && mainTimer.timerCount < 1000 / 2) {
+				if(mainTimer.timerCount > 250 && mainTimer.timerCount < 500) {
 					if(enemyOne != null) {
 						if(!enemyOne.GetComponent<UnitInit>().turn) {
 							enemyOne.GetComponent<UnitInit>().turn = true;
 						}
 					}
 				}
-				else if(mainTimer.timerCount > 1000 / 2 && mainTimer.timerCount < 1500 / 2) {
+				else if(mainTimer.timerCount > 500 && mainTimer.timerCount < 750) {
 					if(enemyTwo != null) {
 						if(!enemyTwo.GetComponent<UnitInit>().turn) {
 							enemyTwo.GetComponent<UnitInit>().turn = true;
 						}
 					}
 				}
-				else if(mainTimer.timerCount > 1500 / 2 && mainTimer.timerCount < 2000 / 2) {
+				else if(mainTimer.timerCount > 750 && mainTimer.timerCount < 1000) {
 					if(enemyThree != null) {
 						if(!enemyThree.GetComponent<UnitInit>().turn) {
 							enemyThree.GetComponent<UnitInit>().turn = true;
 						}
 					}
 				}
-				else if(mainTimer.timerCount > 2000 / 2 && mainTimer.timerCount < 2500 / 2) {
+				else if(mainTimer.timerCount > 1000 / 2 && mainTimer.timerCount < 1250) {
 					if(enemyFour != null) {
 						if(!enemyFour.GetComponent<UnitInit>().turn) {
 							enemyFour.GetComponent<UnitInit>().turn = true;
 						}
 					}
 				}
-				else if(mainTimer.timerCount > 2500 / 2 && mainTimer.timerCount < 3000 / 2) {
+				else if(mainTimer.timerCount > 1250 / 2 && mainTimer.timerCount < 1500) {
 					if(enemyFive != null) {
 						if(!enemyFive.GetComponent<UnitInit>().turn) {
 							enemyFive.GetComponent<UnitInit>().turn = true;

@@ -24,6 +24,10 @@ public class UnitInit : MonoBehaviour
 	public Transform unitModel;
 	public Transform unitAttackRange;
 	public Transform unitAccuracyPointer;
+
+	// animators
+	public Animator healingSpell;
+	public Animator damageSpell;
 	
 	public void setUnitColor(Color color) {
 		Renderer unit_mesh = GetComponent<Renderer>();
