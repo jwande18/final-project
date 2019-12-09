@@ -34557,7 +34557,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -57.600006, y: 17.699997}
+  m_AnchoredPosition: {x: -57.6, y: 18.6}
   m_SizeDelta: {x: 92, y: 24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &563787319
@@ -92913,6 +92913,12 @@ MonoBehaviour:
   enemyThree: {fileID: 0}
   enemyFour: {fileID: 0}
   enemyFive: {fileID: 0}
+  interfaceHUD: {fileID: 268811641}
+  interfaceSelector: {fileID: 563787319}
+  basicAttack: {fileID: 1793724565}
+  specialAttack: {fileID: 613718290}
+  defendMove: {fileID: 224507910}
+  skipMove: {fileID: 639441391}
 --- !u!4 &2078208987
 Transform:
   m_ObjectHideFlags: 0

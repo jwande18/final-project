@@ -39,7 +39,7 @@ public class TriggerRadiusDisplayChecker : MonoBehaviour
 			battleController.deselectUnits();
 			battleController.cameraFocus = transform.position;
 			battleController.cameraAnchor = collision.transform.position;
-			
+			battleController.enableBattleHUD();
 			// enable mesh renderers
 			if(enemyOne != null) {
 				enemyOne.GetComponent<UnitInit>().selected = true;

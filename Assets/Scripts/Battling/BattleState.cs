@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleState : MonoBehaviour
 {
@@ -23,11 +24,27 @@ public class BattleState : MonoBehaviour
 	public GameObject enemyFour;
 	public GameObject enemyFive;
 	
+	// battling interface elements
+	public Image interfaceHUD;
+	public Image interfaceSelector;
+	public Text basicAttack;
+	public Text specialAttack;
+	public Text defendMove;
+	public Text skipMove;
+	
     // Start is called before the first frame update
     void Start() {
         isBattling = false;
 		playerTurn = true;
 		enemyCount = 0;
+		
+		// set battle interface element(s)
+		interfaceHUD.enabled = false;
+		interfaceSelector.enabled = false;
+		basicAttack.enabled = false;
+		specialAttack.enabled = false;
+		defendMove.enabled = false;
+		skipMove.enabled = false;
 		
 		mainTimer = GetComponent<BattleTimer>();
     }
@@ -144,6 +161,14 @@ public class BattleState : MonoBehaviour
 		unitThree.attackRadius.enabled = false;
 		unitThree.accuracyPointer.enabled = false;
 		
+		// set battle interface element(s)
+		interfaceHUD.enabled = false;
+		interfaceSelector.enabled = false;
+		basicAttack.enabled = false;
+		specialAttack.enabled = false;
+		defendMove.enabled = false;
+		skipMove.enabled = false;
+		
 		playerTurn = false;
 			
 		// reset unit movement
@@ -160,8 +185,6 @@ public class BattleState : MonoBehaviour
 		unitOne.manaStat = 100;
 		unitTwo.manaStat = 100;
 		unitThree.manaStat = 100;
-			
-		Debug.Log("Battling OVER");
 	}
 	
 	bool playerTurnComplete() {
@@ -229,5 +252,15 @@ public class BattleState : MonoBehaviour
 		}
 		
 		return result;
+	}
+	
+	public void enableBattleHUD() {
+		// set battle interface element(s)
+		interfaceHUD.enabled = true;
+		interfaceSelector.enabled = true;
+		basicAttack.enabled = true;
+		specialAttack.enabled = true;
+		defendMove.enabled = true;
+		skipMove.enabled = true;
 	}
 }
