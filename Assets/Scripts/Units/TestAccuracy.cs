@@ -6,12 +6,17 @@ public class TestAccuracy : MonoBehaviour
 {
 	UnitInit unitTurn;
 	
-	void OnTriggerStay(Collider collision) {
+	void OnTriggerStay(Collider collision) {		
 		if(Input.GetKeyDown(KeyCode.Q)) {			
 			if(unitTurn.turn && unitTurn.moved && !unitTurn.attacked) {
 				if(collision.gameObject.tag == "UnitEnemySlime") {
 					collision.gameObject.GetComponent<UnitInit>().takeDamage(10);
-					collision.gameObject.GetComponent<UnitInit>().damageSpell.Play("Explode");
+				}
+				else if(collision.gameObject.tag == "UnitPlayerOne" ||
+							collision.gameObject.tag == "UnitPlayerTwo") {
+					if(unitTurn.tag == "UnitPlayerThree") {
+						collision.gameObject.GetComponent<UnitInit>().takeHealing(25);
+					}
 				}
 			}
 		}
@@ -26,10 +31,9 @@ public class TestAccuracy : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Q)) {
-			if(unitTurn.selected) {
-				unitTurn.manaStat -= 5;
-				
+			if(unitTurn.selected && unitTurn.turn) {
 				if(unitTurn.moved) {
+					unitTurn.manaStat -= 5;
 					unitTurn.attacked = true;
 				}
 			}

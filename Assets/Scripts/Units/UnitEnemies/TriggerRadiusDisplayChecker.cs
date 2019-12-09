@@ -15,13 +15,6 @@ public class TriggerRadiusDisplayChecker : MonoBehaviour
 	public GameObject enemyFour;
 	public GameObject enemyFive;
 	
-	// mesh renderers
-	public Renderer triggerRadiusOne;
-	public Renderer triggerRadiusTwo;
-	public Renderer triggerRadiusThree;
-	public Renderer triggerRadiusFour;
-	public Renderer triggerRadiusFive;
-	
 	// unit stat renderers
 	public Renderer unitStatOne;
 	public Renderer unitStatTwo;
@@ -40,7 +33,7 @@ public class TriggerRadiusDisplayChecker : MonoBehaviour
     }
 	
 	void OnTriggerEnter(Collider collision) {
-		if(collision.tag == "UnitPlayer") {
+		if(collision.tag == "UnitPlayerOne" || collision.tag == "UnitPlayerTwo" || collision.tag == "UnitPlayerThree") {
 			// set the battle state
 			battleController.isBattling = true;
 			battleController.deselectUnits();
@@ -48,45 +41,40 @@ public class TriggerRadiusDisplayChecker : MonoBehaviour
 			battleController.cameraAnchor = collision.transform.position;
 			
 			// enable mesh renderers
-			if(triggerRadiusOne != null) {
+			if(enemyOne != null) {
 				enemyOne.GetComponent<UnitInit>().selected = true;
-				triggerRadiusOne.enabled = true;
 				unitStatOne.enabled = true;
 				
 				battleController.enemyOne = enemyOne;
 				battleController.enemyCount += 1;
 			}
 			
-			if(triggerRadiusTwo != null) {
+			if(enemyTwo != null) {
 				enemyTwo.GetComponent<UnitInit>().selected = true;
-				triggerRadiusTwo.enabled = true;
 				unitStatTwo.enabled = true;
 				
 				battleController.enemyTwo = enemyTwo;
 				battleController.enemyCount += 1;
 			}
 			
-			if(triggerRadiusThree != null) {
+			if(enemyThree != null) {
 				enemyThree.GetComponent<UnitInit>().selected = true;
-				triggerRadiusThree.enabled = true;
 				unitStatThree.enabled = true;
 				
 				battleController.enemyThree = enemyThree;
 				battleController.enemyCount += 1;
 			}
 			
-			if(triggerRadiusFour != null) {
+			if(enemyFour != null) {
 				enemyFour.GetComponent<UnitInit>().selected = true;
-				triggerRadiusFour.enabled = true;
 				unitStatFour.enabled = true;
 				
 				battleController.enemyFour = enemyFour;
 				battleController.enemyCount += 1;
 			}
 			
-			if(triggerRadiusFive != null) {
+			if(enemyFive != null) {
 				enemyFive.GetComponent<UnitInit>().selected = true;
-				triggerRadiusFive.enabled = true;
 				unitStatFive.enabled = true;
 				
 				battleController.enemyFive = enemyFive;

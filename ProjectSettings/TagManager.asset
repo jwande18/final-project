@@ -7,7 +7,9 @@ TagManager:
   - UnitPlayer
   - UnitEnemy
   - UnitEnemySlime
-  - UnitPlayerMage
+  - UnitPlayerOne
+  - UnitPlayerTwo
+  - UnitPlayerThree
   layers:
   - Default
   - TransparentFX

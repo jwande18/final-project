@@ -56,7 +56,7 @@ public class UnitInit : MonoBehaviour
     // Update is called once per frame
     void Update() {
 		if(battleController.isBattling) {
-			if(selected) {
+			if(selected && turn) {
 				attackRadius.enabled = true;
 				accuracyPointer.enabled = true;
 			}
@@ -64,6 +64,10 @@ public class UnitInit : MonoBehaviour
 				attackRadius.enabled = false;
 				accuracyPointer.enabled = false;
 			}
+		}
+		else {
+			attackRadius.enabled = false;
+			accuracyPointer.enabled = false;
 		}
 		
 		// check health
@@ -83,6 +87,24 @@ public class UnitInit : MonoBehaviour
     }
 	
 	public void takeDamage(int damage) {
-		healthStat = healthStat - damage;
+		if(healthStat - damage >= 0) {
+			healthStat -= damage;
+		}
+		else {
+			healthStat = 0;
+		}
+
+		damageSpell.Play("Explode");
+	}
+	
+	public void takeHealing(int health) {
+		if(healthStat + health <= 100) {
+			healthStat += health;
+		}
+		else {
+			healthStat = 100;
+		}
+		
+		healingSpell.Play("HealingSpell");
 	}
 }

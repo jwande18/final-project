@@ -18,9 +18,9 @@ public class EnemyAttack : MonoBehaviour
 	
 	
 	void OnTriggerEnter(Collider collision) {
-			if(collision.gameObject.tag == "UnitPlayer") {
-				collision.gameObject.GetComponent<UnitInit>().takeDamage(5);
-				collision.gameObject.GetComponent<UnitInit>().damageSpell.Play("Explode");
+			if(collision.gameObject.tag == "UnitPlayerOne" || collision.gameObject.tag == "UnitPlayerTwo" ||
+					collision.gameObject.tag == "UnitPlayerThree") {
+				collision.gameObject.GetComponent<UnitInit>().takeDamage(10);
 			}
 	}
 	

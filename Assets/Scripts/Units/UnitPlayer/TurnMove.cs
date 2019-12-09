@@ -28,7 +28,7 @@ public class TurnMove : MonoBehaviour {
 		}
 		
 		// unit attack and aim turn
-		if(unitTurn.turn && unitTurn.moved && !unitTurn.attacked) {
+		if(unitTurn.selected && unitTurn.turn && unitTurn.moved && !unitTurn.attacked) {
 			// aiming
 			if(Input.GetKey(KeyCode.A)) {
 				// rotate left

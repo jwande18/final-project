@@ -36,7 +36,6 @@ public class BattleState : MonoBehaviour
     void Update() {
 		if(isBattling) {
 			if(playerTurnComplete()) {
-				Debug.Log("PlayerTurnComplete");
 				deselectUnits();
 				playerTurn = false;
 				
@@ -50,7 +49,6 @@ public class BattleState : MonoBehaviour
 				unitThree.attacked = false;
 			}
 			else if(enemyTurnComplete()) {
-				Debug.Log("EnemyTurnComplete");
 				playerTurn = true;
 				
 				if(enemyOne != null) {
