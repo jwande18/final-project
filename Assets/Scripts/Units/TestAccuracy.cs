@@ -6,17 +6,12 @@ public class TestAccuracy : MonoBehaviour
 {
 	UnitInit unitTurn;
 	
-	void OnTriggerStay(Collider collision) {		
-		if(Input.GetKeyDown(KeyCode.Q)) {			
+	void OnTriggerStay(Collider collision) {
+		// basic attack
+		if(Input.GetKeyDown(KeyCode.Q)) {		
 			if(unitTurn.turn && unitTurn.moved && !unitTurn.attacked) {
 				if(collision.gameObject.tag == "UnitEnemySlime") {
 					collision.gameObject.GetComponent<UnitInit>().takeDamage(10);
-				}
-				else if(collision.gameObject.tag == "UnitPlayerOne" ||
-							collision.gameObject.tag == "UnitPlayerTwo") {
-					if(unitTurn.tag == "UnitPlayerThree") {
-						collision.gameObject.GetComponent<UnitInit>().takeHealing(25);
-					}
 				}
 			}
 		}
@@ -32,7 +27,7 @@ public class TestAccuracy : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Q)) {
 			if(unitTurn.selected && unitTurn.turn) {
-				if(unitTurn.moved) {
+				if(unitTurn.moved && !unitTurn.attacked) {
 					unitTurn.manaStat -= 5;
 					unitTurn.attacked = true;
 				}

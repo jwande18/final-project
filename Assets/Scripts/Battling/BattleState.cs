@@ -97,7 +97,6 @@ public class BattleState : MonoBehaviour
 			}
 			
 			// check for enemy attack
-			Debug.Log(mainTimer.timerCount);
 			if(!playerTurn) {
 				if(mainTimer.timerCount > 250 && mainTimer.timerCount < 500) {
 					if(enemyOne != null) {
