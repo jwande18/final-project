@@ -25,11 +25,14 @@ public class UnitInit : MonoBehaviour
 	public Transform unitModel;
 	public Transform unitAttackRange;
 	public Transform unitAccuracyPointer;
-	public Transform startingPosition;
+	public Vector3 startingPosition;
 
 	// animators
 	public Animator healingSpell;
 	public Animator damageSpell;
+	
+	// animations
+	public Animator modelAnimation;
 	
 	public void setUnitColor(Color color) {
 		Renderer unit_mesh = GetComponent<Renderer>();
@@ -53,6 +56,11 @@ public class UnitInit : MonoBehaviour
 		healthStat = 100;
 		manaStat = 100;
 		defenseStat = 5;
+		
+		// animation controls
+		if(this.gameObject.tag == "UnitPlayerOne" || this.gameObject.tag == "UnitPlayerTwo" || this.gameObject.tag == "UnitPlayerThree") {
+			//modelAnimation.SetBool("IsIdle", true);
+		}
     }
 
     // Update is called once per frame

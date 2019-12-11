@@ -24,9 +24,11 @@ public class BattleState : MonoBehaviour
 	public GameObject enemyFour;
 	public GameObject enemyFive;
 	
+	// game controller
+	public EnemyGroupCounter enemyCounter;
+	
 	// battling interface elements
 	public Image interfaceHUD;
-	public Image interfaceSelector;
 	public Text basicAttack;
 	public Text specialAttack;
 	public Text defendMove;
@@ -40,7 +42,6 @@ public class BattleState : MonoBehaviour
 		
 		// set battle interface element(s)
 		interfaceHUD.enabled = false;
-		interfaceSelector.enabled = false;
 		basicAttack.enabled = false;
 		specialAttack.enabled = false;
 		defendMove.enabled = false;
@@ -56,6 +57,8 @@ public class BattleState : MonoBehaviour
 				deselectUnits();
 				playerTurn = false;
 				
+				Debug.Log("Player Turn Complete");
+				
 				unitOne.moved = false;
 				unitOne.attacked = false;
 				
@@ -64,38 +67,38 @@ public class BattleState : MonoBehaviour
 				
 				unitThree.moved = false;
 				unitThree.attacked = false;
-			}
-			else if(enemyTurnComplete()) {
+			} else if(enemyTurnComplete()) {
 				playerTurn = true;
 				
+				Debug.Log("Enemy Turn Complete");
 				if(enemyOne != null) {
 					enemyOne.GetComponent<UnitInit>().moved = false;
 					enemyOne.GetComponent<UnitInit>().attacked = false;
-					enemyOne.GetComponent<UnitInit>().startingPosition = enemyOne.transform;
+					enemyOne.GetComponent<UnitInit>().startingPosition = enemyOne.transform.position;
 				}
 				
 				if(enemyTwo != null) {
 					enemyTwo.GetComponent<UnitInit>().moved = false;
 					enemyTwo.GetComponent<UnitInit>().attacked = false;
-					enemyTwo.GetComponent<UnitInit>().startingPosition = enemyTwo.transform;
+					enemyTwo.GetComponent<UnitInit>().startingPosition = enemyTwo.transform.position;
 				}
 				
 				if(enemyThree != null) {
 					enemyThree.GetComponent<UnitInit>().moved = false;
 					enemyThree.GetComponent<UnitInit>().attacked = false;
-					enemyThree.GetComponent<UnitInit>().startingPosition = enemyThree.transform;
+					enemyThree.GetComponent<UnitInit>().startingPosition = enemyThree.transform.position;
 				}
 				
 				if(enemyFour != null) {
 					enemyFour.GetComponent<UnitInit>().moved = false;
 					enemyFour.GetComponent<UnitInit>().attacked = false;
-					enemyFour.GetComponent<UnitInit>().startingPosition = enemyFour.transform;
+					enemyFour.GetComponent<UnitInit>().startingPosition = enemyFour.transform.position;
 				}
 				
 				if(enemyFive != null) {
 					enemyFive.GetComponent<UnitInit>().moved = false;
 					enemyFive.GetComponent<UnitInit>().attacked = false;
-					enemyFive.GetComponent<UnitInit>().startingPosition = enemyFive.transform;
+					enemyFive.GetComponent<UnitInit>().startingPosition = enemyFive.transform.position;
 				}
 				
 				mainTimer.timerCount = 0;
@@ -149,12 +152,21 @@ public class BattleState : MonoBehaviour
 				UnitBattleClear();
 			}
 		}
+		
+		if(unitOne.healthStat <= 0 || unitTwo.healthStat <= 0 || unitThree.healthStat <= 0) {
+			Application.LoadLevel(Application.loadedLevel);
+		}
     }
 	
 	public void deselectUnits() {
 		unitOne.selected = false;
 		unitTwo.selected = false;
 		unitThree.selected = false;
+		
+		// set animation
+		unitOne.GetComponent<UnitInit>().modelAnimation.SetBool("IsIdle", true);
+		unitTwo.GetComponent<UnitInit>().modelAnimation.SetBool("IsIdle", true);
+		unitThree.GetComponent<UnitInit>().modelAnimation.SetBool("IsIdle", true);
 	}
 	
 	public void UnitBattleClear() {
@@ -167,7 +179,6 @@ public class BattleState : MonoBehaviour
 		
 		// set battle interface element(s)
 		interfaceHUD.enabled = false;
-		interfaceSelector.enabled = false;
 		basicAttack.enabled = false;
 		specialAttack.enabled = false;
 		defendMove.enabled = false;
@@ -189,6 +200,8 @@ public class BattleState : MonoBehaviour
 		unitOne.manaStat = 100;
 		unitTwo.manaStat = 100;
 		unitThree.manaStat = 100;
+		
+		--enemyCounter.enemyGroupCount;
 	}
 	
 	bool playerTurnComplete() {
@@ -261,7 +274,6 @@ public class BattleState : MonoBehaviour
 	public void enableBattleHUD() {
 		// set battle interface element(s)
 		interfaceHUD.enabled = true;
-		interfaceSelector.enabled = true;
 		basicAttack.enabled = true;
 		specialAttack.enabled = true;
 		defendMove.enabled = true;

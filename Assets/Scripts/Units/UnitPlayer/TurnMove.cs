@@ -23,6 +23,7 @@ public class TurnMove : MonoBehaviour {
 				if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100)) {
 					if(Vector3.Distance(hit.point, agent.transform.position) <= (movementRadius.localScale.x / 2)) {
 						unitTurn.moved = true;
+						unitTurn.GetComponent<UnitInit>().modelAnimation.SetBool("IsIdle", false);
 						agent.destination = hit.point;
 					}
 				}
@@ -40,6 +41,12 @@ public class TurnMove : MonoBehaviour {
 				// rotate right
 				this.transform.Rotate(0.0f, 1.5f, 0.0f);
 			}
+		}
+		
+		// check if destination met
+		if(Vector3.Distance(unitTurn.transform.position, agent.destination) < 0.2) {
+			agent.speed = 0.0f;
+			GetComponent<UnitInit>().modelAnimation.SetBool("IsIdle", true);
 		}
     }
 }

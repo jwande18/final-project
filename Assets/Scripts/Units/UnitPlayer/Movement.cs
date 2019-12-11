@@ -39,9 +39,11 @@ public class Movement : MonoBehaviour {
 				// check if destination met
 				if(Vector3.Distance(transform.position, agent.destination) < 1) {
 					agent.speed = 0.0f;
+					GetComponent<UnitInit>().modelAnimation.SetBool("IsIdle", true);
 				}
 				else {
 					agent.speed = 3.5f;
+					GetComponent<UnitInit>().modelAnimation.SetBool("IsIdle", false);
 				}
 			}
 			else {
@@ -50,11 +52,13 @@ public class Movement : MonoBehaviour {
 					if(Vector3.Distance(transform.position, goal.position) < followDistance) {
 						// check if too close
 						agent.speed = 0.0f;
-				
-						followDistance = Random.Range(2, 5);
+						GetComponent<UnitInit>().modelAnimation.SetBool("IsIdle", true);
+						
+						followDistance = 3;
 					}
 					else {
 						agent.speed = 3.5f;
+						GetComponent<UnitInit>().modelAnimation.SetBool("IsIdle", false);
 					}
 			
 					agent.destination = goal.position;
