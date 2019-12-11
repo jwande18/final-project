@@ -11,6 +11,10 @@ public class EnemyAttack : MonoBehaviour
 	public GameObject unitOne;
 	public GameObject unitTwo;
 	public GameObject unitThree;
+	
+	// renderers
+	public Transform movementRadius;
+	
 	GameObject[] playerUnits;
 	int target;
 	
@@ -26,6 +30,7 @@ public class EnemyAttack : MonoBehaviour
 	
     // Start is called before the first frame update
     void Start() {
+		transform.parent.gameObject.GetComponent<UnitInit>().startingPosition = transform.parent.gameObject.transform;
         agent = transform.parent.gameObject.GetComponent<NavMeshAgent>();
 		battleManager = GameObject.Find("BattleManager");
 		
@@ -46,8 +51,13 @@ public class EnemyAttack : MonoBehaviour
 				agent.speed = 3.5f;
 			}
 			
-			if(Vector3.Distance(transform.parent.gameObject.transform.position, playerUnits[target].transform.position) <= 3.5f) {
+			Debug.Log("Position: " + transform.parent.gameObject.GetComponent<UnitInit>().startingPosition.position);
+			Debug.Log("Distance: " + Vector3.Distance(transform.parent.gameObject.transform.position, transform.parent.gameObject.GetComponent<UnitInit>().startingPosition.position));
+			if((Vector3.Distance(transform.parent.gameObject.transform.position, playerUnits[target].transform.position) <= 3.5f) ||
+					(Vector3.Distance(transform.parent.gameObject.transform.position, transform.parent.gameObject.GetComponent<UnitInit>().startingPosition.position) > 4)) {
+						
 				agent.speed = 0.0f;
+				
 				transform.parent.gameObject.GetComponent<UnitInit>().moved = true;
 				transform.parent.gameObject.GetComponent<UnitInit>().attacked = true;
 			}

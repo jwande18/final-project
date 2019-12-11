@@ -33,7 +33,6 @@ public class SpecialAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         unitTurn = transform.parent.gameObject.GetComponent<UnitInit>();
-		attackSpeed = 0;
     }
 
     // Update is called once per frame

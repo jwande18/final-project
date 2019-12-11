@@ -71,26 +71,31 @@ public class BattleState : MonoBehaviour
 				if(enemyOne != null) {
 					enemyOne.GetComponent<UnitInit>().moved = false;
 					enemyOne.GetComponent<UnitInit>().attacked = false;
+					enemyOne.GetComponent<UnitInit>().startingPosition = enemyOne.transform;
 				}
 				
 				if(enemyTwo != null) {
 					enemyTwo.GetComponent<UnitInit>().moved = false;
 					enemyTwo.GetComponent<UnitInit>().attacked = false;
+					enemyTwo.GetComponent<UnitInit>().startingPosition = enemyTwo.transform;
 				}
 				
 				if(enemyThree != null) {
 					enemyThree.GetComponent<UnitInit>().moved = false;
 					enemyThree.GetComponent<UnitInit>().attacked = false;
+					enemyThree.GetComponent<UnitInit>().startingPosition = enemyThree.transform;
 				}
 				
 				if(enemyFour != null) {
 					enemyFour.GetComponent<UnitInit>().moved = false;
 					enemyFour.GetComponent<UnitInit>().attacked = false;
+					enemyFour.GetComponent<UnitInit>().startingPosition = enemyFour.transform;
 				}
 				
 				if(enemyFive != null) {
 					enemyFive.GetComponent<UnitInit>().moved = false;
 					enemyFive.GetComponent<UnitInit>().attacked = false;
+					enemyFive.GetComponent<UnitInit>().startingPosition = enemyFive.transform;
 				}
 				
 				mainTimer.timerCount = 0;

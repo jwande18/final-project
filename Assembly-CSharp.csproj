@@ -118,10 +118,10 @@
      <Compile Include="Assets\Scripts\UI\DrawUnitBars.cs" />
      <Compile Include="Assets\Scripts\Units\TestAccuracy.cs" />
      <Compile Include="Assets\Scripts\Units\UnitEnemies\EnemyAttack.cs" />
-     <Compile Include="Assets\Scripts\Units\UnitEnemies\TriggerRadius.cs" />
      <Compile Include="Assets\Scripts\Units\UnitEnemies\TriggerRadiusDisplayChecker.cs" />
      <Compile Include="Assets\Scripts\Units\UnitInit.cs" />
      <Compile Include="Assets\Scripts\Units\UnitPlayer\Movement.cs" />
+     <Compile Include="Assets\Scripts\Units\UnitPlayer\SpecialAttack.cs" />
      <Compile Include="Assets\Scripts\Units\UnitPlayer\TurnMove.cs" />
      <None Include="Assets\Imported Assets\GreenForest\PostProcessing\Resources\Shaders\DepthOfField.shader" />
      <None Include="Assets\Imported Assets\Fantasy Skybox FREE\Readme.txt" />

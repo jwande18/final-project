@@ -19,11 +19,13 @@ public class UnitInit : MonoBehaviour
 	public BattleState battleController;
 	public Renderer attackRadius;
 	public Renderer accuracyPointer;
+	public Renderer movementRadius;
 	
 	// child objects
 	public Transform unitModel;
 	public Transform unitAttackRange;
 	public Transform unitAccuracyPointer;
+	public Transform startingPosition;
 
 	// animators
 	public Animator healingSpell;
@@ -57,12 +59,21 @@ public class UnitInit : MonoBehaviour
     void Update() {
 		if(battleController.isBattling) {
 			if(selected && turn) {
-				attackRadius.enabled = true;
-				accuracyPointer.enabled = true;
+				if(!moved) {
+					attackRadius.enabled = false;
+					accuracyPointer.enabled = false;
+					movementRadius.enabled = true;
+				}
+				else {
+					attackRadius.enabled = true;
+					accuracyPointer.enabled = true;
+					movementRadius.enabled = false;
+				}
 			}
 			else {
 				attackRadius.enabled = false;
 				accuracyPointer.enabled = false;
+				movementRadius.enabled = false;
 			}
 		}
 		else {

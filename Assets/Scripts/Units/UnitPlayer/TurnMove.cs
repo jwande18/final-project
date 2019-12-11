@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class TurnMove : MonoBehaviour {
 	UnitInit unitTurn;
 	NavMeshAgent agent;
+	public Transform movementRadius;
 	
     // Start is called before the first frame update
     void Start() {
@@ -17,12 +18,13 @@ public class TurnMove : MonoBehaviour {
     void Update() {
 		// unit movement turn
         if(unitTurn.turn && !unitTurn.moved) {
-			if(Input.GetMouseButtonDown(1)){
-				unitTurn.moved = true;
-				
+			if(Input.GetMouseButtonDown(1)){				
 				RaycastHit hit;
 				if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100)) {
-					agent.destination = hit.point;
+					if(Vector3.Distance(hit.point, agent.transform.position) <= (movementRadius.localScale.x / 2)) {
+						unitTurn.moved = true;
+						agent.destination = hit.point;
+					}
 				}
 			}
 		}
