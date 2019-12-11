@@ -7,17 +7,19 @@ public class TurnMove : MonoBehaviour {
 	UnitInit unitTurn;
 	NavMeshAgent agent;
 	public Transform movementRadius;
+	BattleState battleController;
 	
     // Start is called before the first frame update
     void Start() {
         agent = GetComponent<NavMeshAgent>();
 		unitTurn = GetComponent<UnitInit>();
+		battleController = GameObject.Find("BattleManager").GetComponent<BattleState>();
     }
 
     // Update is called once per frame
     void Update() {
 		// unit movement turn
-        if(unitTurn.turn && !unitTurn.moved) {
+        if(unitTurn.turn && !unitTurn.moved && battleController.playerTurn) {
 			if(Input.GetMouseButtonDown(1)){				
 				RaycastHit hit;
 				if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100)) {

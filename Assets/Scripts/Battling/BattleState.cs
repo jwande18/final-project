@@ -57,8 +57,6 @@ public class BattleState : MonoBehaviour
 				deselectUnits();
 				playerTurn = false;
 				
-				Debug.Log("Player Turn Complete");
-				
 				unitOne.moved = false;
 				unitOne.attacked = false;
 				
@@ -69,8 +67,7 @@ public class BattleState : MonoBehaviour
 				unitThree.attacked = false;
 			} else if(enemyTurnComplete()) {
 				playerTurn = true;
-				
-				Debug.Log("Enemy Turn Complete");
+		
 				if(enemyOne != null) {
 					enemyOne.GetComponent<UnitInit>().moved = false;
 					enemyOne.GetComponent<UnitInit>().attacked = false;
@@ -153,7 +150,7 @@ public class BattleState : MonoBehaviour
 			}
 		}
 		
-		if(unitOne.healthStat <= 0 || unitTwo.healthStat <= 0 || unitThree.healthStat <= 0) {
+		if(unitOne.healthStat <= 0 && unitTwo.healthStat <= 0 && unitThree.healthStat <= 0) {
 			Application.LoadLevel(Application.loadedLevel);
 		}
     }
@@ -201,7 +198,8 @@ public class BattleState : MonoBehaviour
 		unitTwo.manaStat = 100;
 		unitThree.manaStat = 100;
 		
-		--enemyCounter.enemyGroupCount;
+		enemyCounter.enemyGroupCount -= 1;
+		Debug.Log("Reduced Enemy Count");
 	}
 	
 	bool playerTurnComplete() {

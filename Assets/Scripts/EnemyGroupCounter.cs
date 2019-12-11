@@ -11,10 +11,12 @@ public class EnemyGroupCounter : MonoBehaviour
 	public GameObject enemyGroupFour;
 	public GameObject enemyGroupFive;
 	
-	public int enemyGroupCount = 0;
+	public int enemyGroupCount;
 	
     // Start is called before the first frame update
     void Start() {
+		enemyGroupCount = 0;
+		
         if(enemyGroupOne != null) {
 			++enemyGroupCount;
 		}
