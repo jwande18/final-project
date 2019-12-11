@@ -24,7 +24,7 @@ public class EnemyAttack : MonoBehaviour
 	void OnTriggerEnter(Collider collision) {
 			if(collision.gameObject.tag == "UnitPlayerOne" || collision.gameObject.tag == "UnitPlayerTwo" ||
 					collision.gameObject.tag == "UnitPlayerThree") {
-				collision.gameObject.GetComponent<UnitInit>().takeDamage(10);
+				collision.gameObject.GetComponent<UnitInit>().takeDamage(100);
 			}
 	}
 	
@@ -49,12 +49,19 @@ public class EnemyAttack : MonoBehaviour
 			if(unitTurn.selected && unitTurn.turn) {
 				agent.destination = playerUnits[target].transform.position;
 				agent.speed = 3.5f;
+				
+				if(transform.parent.gameObject.tag == "UnitEnemyGoblin") {
+					transform.parent.gameObject.GetComponent<UnitInit>().modelAnimation.SetBool("IsWalking", true);
+				}
 			}
 			
-			if((Vector3.Distance(transform.parent.gameObject.transform.position, playerUnits[target].transform.position) <= 3.5f) ||
+			if((Vector3.Distance(transform.parent.gameObject.transform.position, playerUnits[target].transform.position) <= 3) ||
 					(Vector3.Distance(transform.parent.gameObject.transform.position, transform.parent.gameObject.GetComponent<UnitInit>().startingPosition) > (movementRadius.localScale.x / 2))) {
 						
 				agent.speed = 0.0f;
+				if(transform.parent.gameObject.tag == "UnitEnemyGoblin") {
+					transform.parent.gameObject.GetComponent<UnitInit>().modelAnimation.SetBool("IsWalking", false);
+				}
 				
 				transform.parent.gameObject.GetComponent<UnitInit>().moved = true;
 				transform.parent.gameObject.GetComponent<UnitInit>().attacked = true;

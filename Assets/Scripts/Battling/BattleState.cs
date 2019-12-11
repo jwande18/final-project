@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BattleState : MonoBehaviour
 {
@@ -28,7 +29,6 @@ public class BattleState : MonoBehaviour
 	public EnemyGroupCounter enemyCounter;
 	
 	// battling interface elements
-	public Image interfaceHUD;
 	public Text basicAttack;
 	public Text specialAttack;
 	public Text defendMove;
@@ -41,7 +41,6 @@ public class BattleState : MonoBehaviour
 		enemyCount = 0;
 		
 		// set battle interface element(s)
-		interfaceHUD.enabled = false;
 		basicAttack.enabled = false;
 		specialAttack.enabled = false;
 		defendMove.enabled = false;
@@ -72,30 +71,50 @@ public class BattleState : MonoBehaviour
 					enemyOne.GetComponent<UnitInit>().moved = false;
 					enemyOne.GetComponent<UnitInit>().attacked = false;
 					enemyOne.GetComponent<UnitInit>().startingPosition = enemyOne.transform.position;
+					
+					if(enemyOne.tag == "UnitEnemyGoblin") {
+						enemyOne.GetComponent<UnitInit>().modelAnimation.SetBool("IsWalking", true);
+					}
 				}
 				
 				if(enemyTwo != null) {
 					enemyTwo.GetComponent<UnitInit>().moved = false;
 					enemyTwo.GetComponent<UnitInit>().attacked = false;
 					enemyTwo.GetComponent<UnitInit>().startingPosition = enemyTwo.transform.position;
+					
+					if(enemyTwo.tag == "UnitEnemyGoblin") {
+						enemyTwo.GetComponent<UnitInit>().modelAnimation.SetBool("IsWalking", true);
+					}
 				}
 				
 				if(enemyThree != null) {
 					enemyThree.GetComponent<UnitInit>().moved = false;
 					enemyThree.GetComponent<UnitInit>().attacked = false;
 					enemyThree.GetComponent<UnitInit>().startingPosition = enemyThree.transform.position;
+					
+					if(enemyThree.tag == "UnitEnemyGoblin") {
+						enemyThree.GetComponent<UnitInit>().modelAnimation.SetBool("IsWalking", true);
+					}
 				}
 				
 				if(enemyFour != null) {
 					enemyFour.GetComponent<UnitInit>().moved = false;
 					enemyFour.GetComponent<UnitInit>().attacked = false;
 					enemyFour.GetComponent<UnitInit>().startingPosition = enemyFour.transform.position;
+					
+					if(enemyFour.tag == "UnitEnemyGoblin") {
+						enemyFour.GetComponent<UnitInit>().modelAnimation.SetBool("IsWalking", true);
+					}
 				}
 				
 				if(enemyFive != null) {
 					enemyFive.GetComponent<UnitInit>().moved = false;
 					enemyFive.GetComponent<UnitInit>().attacked = false;
 					enemyFive.GetComponent<UnitInit>().startingPosition = enemyFive.transform.position;
+					
+					if(enemyFive.tag == "UnitEnemyGoblin") {
+						enemyFive.GetComponent<UnitInit>().modelAnimation.SetBool("IsWalking", true);
+					}
 				}
 				
 				mainTimer.timerCount = 0;
@@ -150,8 +169,9 @@ public class BattleState : MonoBehaviour
 			}
 		}
 		
-		if(unitOne.healthStat <= 0 && unitTwo.healthStat <= 0 && unitThree.healthStat <= 0) {
-			Application.LoadLevel(Application.loadedLevel);
+		if((unitOne.healthStat <= 0 && unitTwo.healthStat <= 0 && unitThree.healthStat <= 0) ||
+				unitOne.manaStat <= 0 && unitTwo.manaStat <= 0 && unitThree.manaStat <= 0) {
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
     }
 	
@@ -175,7 +195,6 @@ public class BattleState : MonoBehaviour
 		unitThree.accuracyPointer.enabled = false;
 		
 		// set battle interface element(s)
-		interfaceHUD.enabled = false;
 		basicAttack.enabled = false;
 		specialAttack.enabled = false;
 		defendMove.enabled = false;
@@ -197,6 +216,11 @@ public class BattleState : MonoBehaviour
 		unitOne.manaStat = 100;
 		unitTwo.manaStat = 100;
 		unitThree.manaStat = 100;
+		
+		// reset animations
+		unitOne.modelAnimation.SetBool("IsDefeat", false);
+		unitTwo.modelAnimation.SetBool("IsDefeat", false);
+		unitThree.modelAnimation.SetBool("IsDefeat", false);
 		
 		enemyCounter.enemyGroupCount -= 1;
 		Debug.Log("Reduced Enemy Count");
@@ -271,7 +295,6 @@ public class BattleState : MonoBehaviour
 	
 	public void enableBattleHUD() {
 		// set battle interface element(s)
-		interfaceHUD.enabled = true;
 		basicAttack.enabled = true;
 		specialAttack.enabled = true;
 		defendMove.enabled = true;

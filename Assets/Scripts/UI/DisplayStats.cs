@@ -16,6 +16,6 @@ public class DisplayStats : MonoBehaviour
     // Update is called once per frame
     void Update() {
         GetComponent<TextMesh>().text = "HP: " + unitBase.healthStat;
-		this.gameObject.transform.LookAt(battleController.cameraAnchor);
+		//this.gameObject.transform.LookAt(battleController.cameraAnchor);
     }
 }

@@ -10,7 +10,8 @@ public class TestAccuracy : MonoBehaviour
 		// basic attack
 		if(Input.GetKeyDown(KeyCode.Q)) {		
 			if(unitTurn.turn && unitTurn.moved && !unitTurn.attacked) {
-				if(collision.gameObject.tag == "UnitEnemy") {
+				if(collision.gameObject.tag == "UnitEnemyGoblin" || collision.gameObject.tag == "UnitEnemySlime") {
+					GetComponent<AudioSource>().Play();
 					collision.gameObject.GetComponent<UnitInit>().takeDamage(10);
 				}
 			}

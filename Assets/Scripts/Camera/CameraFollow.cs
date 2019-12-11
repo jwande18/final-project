@@ -42,7 +42,7 @@ public class CameraFollow : MonoBehaviour
 		
 		if(battleController.isBattling) {
 			if(!foundPoint) {
-				transform.position = battleController.cameraAnchor + camera_offset;
+				transform.position = battleController.cameraAnchor + camera_offset + new Vector3(0, 10, 0);
 				foundPoint = true;
 			}
 		}

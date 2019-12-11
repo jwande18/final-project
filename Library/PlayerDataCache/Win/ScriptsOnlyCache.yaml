@@ -13,6 +13,7 @@ ScriptsOnlyBuild:
     - EnemyGroupCounter
     - Movement
     - SelectUnit
+    - SoundController
     - SpecialAttack
     - TestAccuracy
     - TriggerRadiusDisplayChecker
@@ -117,15 +118,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11204}
     - Class: 114
-      Script: {instanceID: 11344}
+      Script: {instanceID: 11298}
     - Class: 114
-      Script: {instanceID: 11382}
+      Script: {instanceID: 11346}
     - Class: 114
-      Script: {instanceID: 11518}
+      Script: {instanceID: 11384}
     - Class: 114
-      Script: {instanceID: 11578}
+      Script: {instanceID: 11520}
     - Class: 114
-      Script: {instanceID: 261800}
+      Script: {instanceID: 11580}
+    - Class: 114
+      Script: {instanceID: 223032}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -248,15 +251,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11204}
     - Class: 114
-      Script: {instanceID: 11344}
+      Script: {instanceID: 11298}
     - Class: 114
-      Script: {instanceID: 11382}
+      Script: {instanceID: 11346}
     - Class: 114
-      Script: {instanceID: 11518}
+      Script: {instanceID: 11384}
     - Class: 114
-      Script: {instanceID: 11578}
+      Script: {instanceID: 11520}
     - Class: 114
-      Script: {instanceID: 261800}
+      Script: {instanceID: 11580}
+    - Class: 114
+      Script: {instanceID: 223032}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -375,15 +380,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11204}
     - Class: 114
-      Script: {instanceID: 11344}
+      Script: {instanceID: 11298}
     - Class: 114
-      Script: {instanceID: 11382}
+      Script: {instanceID: 11346}
     - Class: 114
-      Script: {instanceID: 11518}
+      Script: {instanceID: 11384}
     - Class: 114
-      Script: {instanceID: 11578}
+      Script: {instanceID: 11520}
     - Class: 114
-      Script: {instanceID: 261800}
+      Script: {instanceID: 11580}
+    - Class: 114
+      Script: {instanceID: 223032}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -873,6 +880,12 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
+      Hash: da986d5c21b8cd684ae49e3cc70be2f4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyGroupCounter
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -891,7 +904,7 @@ ScriptsOnlyBuild:
     className: TMP_StyleSheet
   - hash:
       serializedVersion: 2
-      Hash: d3331dc04ced7becf6c55fc0d32a8d48
+      Hash: a35ab71ff4d197ef386af9864990d00e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BattleState
@@ -993,10 +1006,10 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: da986d5c21b8cd684ae49e3cc70be2f4
+      Hash: 2b8bb164c52cba2a5ae4ccbfeca094c0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: EnemyGroupCounter
+    className: SoundController
   platform: 5
   scenePathNames:
   - Assets/Scenes/Forest.unity

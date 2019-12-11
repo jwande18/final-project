@@ -22,10 +22,13 @@ public class TurnMove : MonoBehaviour {
         if(unitTurn.turn && !unitTurn.moved && battleController.playerTurn) {
 			if(Input.GetMouseButtonDown(1)){				
 				RaycastHit hit;
+				
 				if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100)) {
 					if(Vector3.Distance(hit.point, agent.transform.position) <= (movementRadius.localScale.x / 2)) {
 						unitTurn.moved = true;
+						agent.speed = 3.5f;
 						unitTurn.GetComponent<UnitInit>().modelAnimation.SetBool("IsIdle", false);
+						
 						agent.destination = hit.point;
 					}
 				}
@@ -38,10 +41,15 @@ public class TurnMove : MonoBehaviour {
 			if(Input.GetKey(KeyCode.A)) {
 				// rotate left
 				this.transform.Rotate(0.0f, -1.5f, 0.0f);
+				agent.angularSpeed = 0.0f;
 			}
 			else if(Input.GetKey(KeyCode.D)) {
 				// rotate right
 				this.transform.Rotate(0.0f, 1.5f, 0.0f);
+				agent.angularSpeed = 0.0f;
+			}
+			else {
+				agent.angularSpeed = 120.0f;
 			}
 		}
 		

@@ -7,19 +7,21 @@ public class SpecialAttack : MonoBehaviour
 	UnitInit unitTurn;
 	
 	void OnTriggerStay(Collider collision) {
-		if(Input.GetKeyDown(KeyCode.W)) {
+		if(Input.GetKeyDown(KeyCode.R)) {
 			if(unitTurn.turn && unitTurn.moved && !unitTurn.attacked) {
 				if(unitTurn.tag == "UnitPlayerOne") {
 					int critChance = Random.Range(5, 100);
+					unitTurn.GetComponent<AudioSource>().Play();
 					
-					if(collision.gameObject.tag == "UnitEnemy") {
+					if(collision.gameObject.tag == "UnitEnemyGoblin" || collision.gameObject.tag == "UnitEnemySlime") {
 						collision.gameObject.GetComponent<UnitInit>().takeDamage(critChance);
 					}
 				}
 				else if(unitTurn.tag == "UnitPlayerTwo") {
 					int attackRate = Random.Range(1, 5);
+					unitTurn.GetComponent<AudioSource>().Play();
 					
-					if(collision.gameObject.tag == "UnitEnemy") {
+					if(collision.gameObject.tag == "UnitEnemyGoblin" || collision.gameObject.tag == "UnitEnemySlime") {
 						collision.gameObject.GetComponent<UnitInit>().takeDamage(10 * attackRate);
 					}
 				}
@@ -27,6 +29,7 @@ public class SpecialAttack : MonoBehaviour
 					if(collision.gameObject.tag == "UnitPlayerOne" ||
 						collision.gameObject.tag == "UnitPlayerTwo") {
 						// heal teammate
+						unitTurn.GetComponent<AudioSource>().Play();
 						collision.gameObject.GetComponent<UnitInit>().takeHealing(25);
 					}
 				}
@@ -41,7 +44,7 @@ public class SpecialAttack : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        if(Input.GetKeyDown(KeyCode.W)) {
+        if(Input.GetKeyDown(KeyCode.R)) {
 			if(unitTurn.selected && unitTurn.turn) {
 				if(unitTurn.moved && !unitTurn.attacked) {
 					unitTurn.manaStat -= 15;

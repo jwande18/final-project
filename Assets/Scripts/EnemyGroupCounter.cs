@@ -42,7 +42,12 @@ public class EnemyGroupCounter : MonoBehaviour
     void Update() {
         if(enemyGroupCount <= 0) {
 			// move to next scene
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+			if(SceneManager.GetActiveScene().name == "Desert") {
+				Application.Quit();
+			}
+			else {
+				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+			}
 		}
     }
 }

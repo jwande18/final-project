@@ -61,6 +61,9 @@ public class UnitInit : MonoBehaviour
 		if(this.gameObject.tag == "UnitPlayerOne" || this.gameObject.tag == "UnitPlayerTwo" || this.gameObject.tag == "UnitPlayerThree") {
 			//modelAnimation.SetBool("IsIdle", true);
 		}
+		else if(this.gameObject.tag == "UnitEnemyGoblin") {
+			modelAnimation.SetBool("IsWalking", true);
+		}
     }
 
     // Update is called once per frame
@@ -91,12 +94,48 @@ public class UnitInit : MonoBehaviour
 		
 		// check health
 		if(healthStat <= 0) {
-			battleController.enemyCount -= 1;
-			Destroy(this.gameObject.transform.parent.gameObject);
+			if(this.tag == "UnitPlayerOne" || this.tag == "UnitPlayerTwo" || this.tag == "UnitPlayerThree") {
+				turn = false;
+				selected = false;
+				attacked = true;
+				moved = true;
+				modelAnimation.SetBool("IsDefeat", true);
+			}
+			else {
+				battleController.enemyCount -= 1;
+				Destroy(this.gameObject.transform.parent.gameObject);
+			}
 		}
 		
-		if(Input.GetKeyDown(KeyCode.H)) {
-			healthStat -= 5;
+		if(manaStat <= 0) {
+			if(this.tag == "UnitPlayerOne" || this.tag == "UnitPlayerTwo" || this.tag == "UnitPlayerThree") {
+				turn = false;
+				selected = false;
+				attacked = true;
+				moved = true;
+				modelAnimation.SetBool("IsDefeat", true);
+			}
+		}
+		
+		if(Input.GetKeyDown(KeyCode.W)) {
+			if(this.tag == "UnitPlayerOne" || this.tag == "UnitPlayerTwo" || this.tag == "UnitPlayerThree") {
+				defenseStat = 10;
+			}
+		}
+		
+		if(Input.GetKeyDown(KeyCode.E)) {
+			if(this.tag == "UnitPlayerOne" && selected) {
+				moved = true;
+				attacked = true;
+			}
+			else if(this.tag == "UnitPlayerTwo" && selected) {
+				moved = true;
+				attacked = true;
+			}
+			else if(this.tag == "UnitPlayerThree" && selected) {
+				moved = true;
+				attacked = true;
+			}
 		}
 		
 		// check turn
